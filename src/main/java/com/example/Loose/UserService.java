@@ -9,7 +9,7 @@ public class UserService {
     }
 
     public static void notifyUser(String message){
-        notificationService.send(message); // ✅ correct
+        notificationService.send("message"); // ✅ correct
     }
 
     public void setNotificationService(NotificationService notificationService) {

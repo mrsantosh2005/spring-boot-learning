@@ -11,12 +11,30 @@
     <bean id="myBean"
           class="com.example.demo.greetingService"/>
 
-    <!-- Email Notification -->
+    <!-- Email Service -->
     <bean id="emailNotificationService"
           class="com.example.Loose.EmailNotificationService"/>
 
+    <!-- SMS Service -->
+    <bean id="SMSNotificationService"
+          class="com.example.Loose.SMSNotificationService"/>
+
     <!-- User Service -->
     <bean id="userService"
+          class="com.example.Loose.UserService">
+
+        <property name="notificationService"
+                  ref="emailNotificationService"/>
+
+    </bean>
+
+    <bean id="userServiceSMS"
+          class="com.example.Loose.UserService">
+        <property name="notificationService"
+                  ref="SMSNotificationService"/>
+<!--        <constructor-arg ref="SMSNotificationService"/>-->
+    </bean>
+    <bean id="userServiceEmail"
           class="com.example.Loose.UserService">
 
         <property name="notificationService"

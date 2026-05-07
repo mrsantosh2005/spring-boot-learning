@@ -19,8 +19,13 @@ public class mainApp {
 
         // UserService Bean
         UserService userService =
-                (UserService) context.getBean("userService");
+                (UserService) context.getBean("userServiceSMS");
 
         userService.notifyUser("whats up");
+
+        UserService userServiceEmail =
+                (UserService) context.getBean("userServiceEmail");
+
+        userServiceEmail.notifyUser("whats up");
     }
 }
